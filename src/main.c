@@ -2,9 +2,9 @@
 	
 int main(int argc, char** argv) {
 
-    const int _multiplex = 1;
-    const char*_logfile = "STDERR";
-    const char* _execute = "";
+    int _multiplex = 1;
+    char*_logfile = "STDERR";
+    char* _execute = "";
     const char* short_options = "l::e:m::";
     const char* modes[] = {"logfile", "execute", "multiplex"};
     
