@@ -4,6 +4,7 @@ int main(int argc, char** argv) {
 
     const int _multiplex = 1;
     const char*_logfile = "STDERR";
+    const char* _execute = "";
     const char* short_options = "l::e:m::";
     const char* modes[] = {"logfile", "execute", "multiplex"};
     
@@ -22,6 +23,7 @@ int main(int argc, char** argv) {
             case 'l': {
                 colparam = 1;
                 printf("Case l \n%s\n",optarg);
+                _logfile = optarg;
                 break;
             };
             case 'e': {
@@ -32,6 +34,7 @@ int main(int argc, char** argv) {
             case 'm': {
                 colparam = 1;
                 printf("Case 3 \n%s\n",optarg);
+                multiplex = optarg;
                 break;
             };
             default:
@@ -51,7 +54,14 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	
+	if(strcmp("", _execute ) == 0)){
+		printf("Укажите multiplex командой: --multiplex=value\n");
+		return 1;	
+	}
+	if(!(strcmp(0, _execute ) == 0)||strcmp(1, _execute ) == 0))){
+		printf("Укажите значение multiplex равное 0 или 1");
+		return 1;
+	}
 	
 	return 0;
 }
