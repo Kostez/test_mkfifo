@@ -12,6 +12,12 @@ int main(int argc, char** argv) {
     const char* short_options = "l:e::m::";
     const char* modes[] = {"logfile", "execute", "multiplex"};
     
+    const struct option long_options[] = {
+        {"logfile",required_argument,NULL,'l'},
+        {"execute",optional_argument,NULL,'e'},
+        {"multiplex",optional_argument,NULL,'m'},
+    };
+    
     int rez;
     int option_index;
     int colparam = 0;
