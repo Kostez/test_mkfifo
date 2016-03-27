@@ -1,7 +1,7 @@
 #include <general.h>
 	
     char* _logfile = "STDERR";
-    char* _execute = "";
+    char* _execute = " ";
     int _multiplex = 1;
     
 int main(int argc, char** argv) {
@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	if(strcmp("", _execute ) == 0 ){
+	if(strcmp(" ", _execute ) == 0 ){
 		printf("Укажите \"command and args\" командой: --multiplex=\"command and args\"\n");
 		exit(1);	
 	}
