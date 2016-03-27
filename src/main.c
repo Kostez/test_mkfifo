@@ -55,11 +55,11 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	if(strcmp("", _multiplex) == 0)){
+	if(strcmp(_multiplex, NULL == 0)){
 		printf("Укажите multiplex командой: --multiplex=value\n");
 		exit(1);	
 	}
-	if(!(strcmp(0, _multiplex) == 0||strcmp(1, _execute ) == 0)){
+	if(!(strcmp(_multiplex, 0) == 0||strcmp(_execute, 1 ) == 0)){
 		printf("Укажите значение multiplex равное 0 или 1");
 		exit(1);
 	}
