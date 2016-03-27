@@ -9,8 +9,8 @@ void mode_pipe(){
 }
 int main(int argc, char** argv) {
 
-    const char* short_options = "m:a::s::p::";
-    const char* modes[] = {"std", "child", "posix", "kill", "pipe"};
+    const char* short_options = "l:e::m::";
+    const char* modes[] = {"logfile", "execute", "multiplex"};
     const struct option long_options[] = {
         {"mode",required_argument,NULL,'m'},
         {"amount",optional_argument,NULL,'a'},
@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     while ((rez=getopt_long(argc,argv,short_options,
                 long_options,&option_index))!=-1){
         switch(rez){
-            case 'm': {
+            case 'l': {
                 colparam = 1;
                 printf("Case m \n");
                 int i = 0;
@@ -39,22 +39,16 @@ int main(int argc, char** argv) {
                 }
                 break;
             };
-            case 'a': {
+            case 'e': {
                 colparam = 1;
                 printf("Case a \n");
                 params.amount = atoi(optarg);
                 break;
             };
-            case 's': {
+            case 'm': {
                 colparam = 1;
                 printf("Case s \n");
                 params.signalname = atoi(optarg);
-                break;
-            };
-            case 'p': {
-                colparam = 1;
-                printf("Case p \n");
-                params.pid = atoi(optarg);
                 break;
             };
             default:
