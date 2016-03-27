@@ -1,8 +1,8 @@
 #include <general.h>
 	
-    char*_logfile = "STDERR";
+    char* _logfile = "STDERR";
     char* _execute = "";
-    int* _multiplex = 1;
+    int _multiplex = 1;
     
 int main(int argc, char** argv) {
     
@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
             case 'm': {
                 colparam = 1;
                 printf("Case 3 \n%s\n",optarg);
-                *_multiplex = (int)optarg;
+                _multiplex = (int)optarg;
                 break;
             };
             default:
