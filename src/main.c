@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
             case 'e': {
                 colparam = 1;
                 printf("Case 2 \n%s\n",optarg);
-                _execute = optarg;
+                _execute = atoi(optarg);
                 break;
             };
             case 'm': {
