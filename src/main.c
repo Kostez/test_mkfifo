@@ -65,7 +65,7 @@ void runmylab(){
 		exit(1);	
 	}
 	if(((_multiplex > 1)||(_multiplex < 0))){
-		printf("Укажите значение multiplex равное 0 или 1");
+		printf("Укажите значение multiplex равное 0 или 1\n");
 		exit(1);
 	}
 }
