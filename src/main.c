@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	if(_multiplex == null){
+	if(_execute == ""){
 		printf("Укажите multiplex командой: --multiplex=value\n");
 		exit(1);	
 	}
