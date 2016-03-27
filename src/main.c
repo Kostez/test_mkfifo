@@ -40,5 +40,12 @@ int main(int argc, char** argv) {
                 break;
         }
     }
+     if(colparam == 0){
+        printf("Use README.MD to run with parameters\n");
+        return 0;
+    }
+    
+    runmylab();
+    
     return 0;
 }
