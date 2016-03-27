@@ -50,6 +50,10 @@ int main(int argc, char** argv) {
         return 0;
     }
     
+    printf("_logfile: %s\n",_logfile);
+    printf("_execute: %s\n",_execute);
+    printf("_multiplex: %d\n",_multiplex);
+    
     runmylab();
     
     return 0;
