@@ -1,10 +1,11 @@
 #include <general.h>
 	
 int main(int argc, char** argv) {
-
-    int _multiplex = 1;
+    
     char*_logfile = "STDERR";
     char* _execute = "";
+    int _multiplex = 1;
+    
     const char* short_options = "l::e:m::";
     const char* modes[] = {"logfile", "execute", "multiplex"};
     
@@ -34,7 +35,7 @@ int main(int argc, char** argv) {
             case 'm': {
                 colparam = 1;
                 printf("Case 3 \n%s\n",optarg);
-                _multiplex = optarg;
+                _multiplex = (int)optarg;
                 break;
             };
             default:
@@ -62,6 +63,5 @@ void runmylab(){
 		printf("Укажите значение multiplex равное 0 или 1");
 		return 1;
 	}
-	
 	return 0;
 }
