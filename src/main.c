@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
         switch(rez){
             case 'l': {
                 colparam = 1;
-                printf("Case l \n%d",optarg);
+                printf("Case l \n%s",optarg);
                 break;
             };
             case 'e': {
