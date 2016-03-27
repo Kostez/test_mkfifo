@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
             case 'm': {
                 colparam = 1;
                 printf("Case 3 \n%s\n",optarg);
-                _multiplex = optarg;
+                *_multiplex = optarg;
                 break;
             };
             default:
@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	if(_multiplex == NULL){
+	if(*_multiplex == NULL){
 		printf("Укажите multiplex командой: --multiplex=value\n");
 		exit(1);	
 	}
