@@ -35,7 +35,7 @@ int main(int argc, char** argv) {
             case 'm': {
                 colparam = 1;
                 printf("Case 3 \n%s\n",optarg);
-                _multiplex = (int)optarg;
+                _multiplex = optarg;
                 break;
             };
             default:
