@@ -1,12 +1,5 @@
 #include <general.h>
-
-void mode_kill(int signo, int validkillpid){		
- 		
-}		
- 		
-void mode_pipe(){		
- 		
-}
+	
 int main(int argc, char** argv) {
 
     const char* short_options = "l:e::m::";
