@@ -34,7 +34,7 @@ int main(int argc, char** argv) {
             case 'm': {
                 colparam = 1;
                 printf("Case 3 \n%s\n",optarg);
-                multiplex = optarg;
+                _multiplex = optarg;
                 break;
             };
             default:
@@ -54,11 +54,11 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	if(strcmp("", _execute ) == 0)){
+	if(strcmp("", _multiplex) == 0)){
 		printf("Укажите multiplex командой: --multiplex=value\n");
 		return 1;	
 	}
-	if(!(strcmp(0, _execute ) == 0)||strcmp(1, _execute ) == 0))){
+	if(!(strcmp(0, _multiplex) == 0)||strcmp(1, _execute ) == 0))){
 		printf("Укажите значение multiplex равное 0 или 1");
 		return 1;
 	}
