@@ -1,7 +1,7 @@
 #include <general.h>
 	
     char* _logfile = "STDERR";
-    char* _execute = "a";
+    char* _execute = "";
     int _multiplex = 1;
     
 int main(int argc, char** argv) {
@@ -10,8 +10,8 @@ int main(int argc, char** argv) {
     const char* modes[] = {"logfile", "execute", "multiplex"};
     
     const struct option long_options[] = {
-        {"logfile",required_argument,NULL,'l'},
-        {"execute",optional_argument,NULL,'e'},
+        {"logfile",optional_argument,NULL,'l'},
+        {"execute",required_argument,NULL,'e'},
         {"multiplex",optional_argument,NULL,'m'},
     };
     
@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	if(strcmp("a", _execute ) == 0 ){
+	if(strcmp("", _execute ) == 0 ){
 		printf("Укажите \"command and args\" командой: --multiplex=\"command and args\"\n");
 		exit(1);	
 	}
