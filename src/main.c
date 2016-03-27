@@ -30,12 +30,13 @@ int main(int argc, char** argv) {
             case 'e': {
                 colparam = 1;
                 printf("Case 2 \n%s\n",optarg);
+                _execute = optarg;
                 break;
             };
             case 'm': {
                 colparam = 1;
                 printf("Case 3 \n%s\n",optarg);
-                _multiplex = (int)optarg;
+                _multiplex = optarg;
                 break;
             };
             default:
