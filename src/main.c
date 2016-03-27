@@ -2,7 +2,7 @@
 	
     char*_logfile = "STDERR";
     char* _execute = "";
-    int _multiplex = 1;
+    int* _multiplex = 1;
     
 int main(int argc, char** argv) {
     
