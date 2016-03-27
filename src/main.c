@@ -26,14 +26,12 @@ int main(int argc, char** argv) {
             };
             case 'e': {
                 colparam = 1;
-                printf("Case e \n");
-                params.amount = atoi(optarg);
+                printf("Case 2 \n%s\n",optarg);
                 break;
             };
             case 'm': {
                 colparam = 1;
-                printf("Case m \n");
-                params.signalname = atoi(optarg);
+                printf("Case 3 \n%s\n",optarg);
                 break;
             };
             default:
