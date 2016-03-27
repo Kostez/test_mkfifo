@@ -60,8 +60,8 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	if(_execute == ""){
-		printf("Укажите multiplex командой: --multiplex=value\n");
+	if(strcmp("", _execute ) == 0 ){
+		printf("Укажите "command and args" командой: --multiplex="command and args"\n");
 		exit(1);	
 	}
 	if(((_multiplex > 1)||(_multiplex < 0))){
