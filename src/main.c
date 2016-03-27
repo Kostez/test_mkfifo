@@ -6,7 +6,7 @@
     
 int main(int argc, char** argv) {
     
-    const char* short_options = "l::e:m::";
+    const char* short_options = "l::e::m::";
     const char* modes[] = {"logfile", "execute", "multiplex"};
     
     const struct option long_options[] = {
