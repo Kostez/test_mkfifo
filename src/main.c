@@ -1,10 +1,10 @@
 #include <general.h>
 	
-int main(int argc, char** argv) {
-    
     char*_logfile = "STDERR";
     char* _execute = "";
     int _multiplex = 1;
+    
+int main(int argc, char** argv) {
     
     const char* short_options = "l::e:m::";
     const char* modes[] = {"logfile", "execute", "multiplex"};
