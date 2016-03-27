@@ -9,6 +9,8 @@
 
 #define HELLOMSG "Say Hi!\r\n"
 
+void runmylab(void);
+
 enum Modes {
         modes_std = 0,
         modes_child,
