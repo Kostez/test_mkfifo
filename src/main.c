@@ -64,8 +64,16 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	/*основное действие*/
+    /*основное действие*/
 	
-	
-	
+    pid_t pid;
+    pid=fork();
+    if(pid == -1) {
+        perror("fork err");
+        exit(0);
+    } else if(pid > 0) {
+    	
+    } else {
+    	
+    }
 }
