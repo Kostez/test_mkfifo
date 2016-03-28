@@ -72,11 +72,13 @@ void runmylab(){
         perror("fork err");
         exit(0);
     } else if(pid > 0) {
-    	printf("PARENT:\n");
+    	printf("PARENT: начало\n");
     	printf("жду:\n");
     	while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
-    	printf("дождался:\n");
+    	printf("PARENT: конец\n");
     } else {
-    	printf("CHILD:\n");
+    	printf("CHILD: начало\n");
+    	execv("hello",_execute);
+    	printf("CHILD: конец\n");
     }
 }
