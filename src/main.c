@@ -75,6 +75,7 @@ void runmylab(){
     }
     
     pid=fork();
+    
     if(pid == -1) {
         perror("fork err");
         exit(0);
@@ -86,8 +87,8 @@ void runmylab(){
     } else {
     	printf("CHILD: начало\n");
     	
-    	STDIN = pipefd[0];
-    	STDOUT = pipefd[1];
+    	$STDIN = pipefd[0];
+    	$STDOUT = pipefd[1];
     	
     	system(_execute);
     	printf("CHILD: конец\n");
