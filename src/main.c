@@ -73,7 +73,9 @@ void runmylab(){
         exit(0);
     } else if(pid > 0) {
     	printf("PARENT:\n");
+    	printf("жду:\n");
     	while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
+    	printf("дождался:\n");
     } else {
     	printf("CHILD:\n");
     }
