@@ -70,6 +70,6 @@ int main(int argc, char** argv) {
 }
 
 void runmylab(){
-	/*основное действие*/
+	/*основное действие dsfsdfsdfsdf*/
 	
 }
