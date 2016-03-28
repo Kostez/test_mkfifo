@@ -66,13 +66,14 @@ int main(int argc, char** argv) {
 void runmylab(){
     /*основное действие*/
 	
-    pid_t pid;
+    int pid, status;
     pid=fork();
     if(pid == -1) {
         perror("fork err");
         exit(0);
     } else if(pid > 0) {
     	printf("PARENT:\n");
+    	while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
     } else {
     	printf("CHILD:\n");
     }
