@@ -67,6 +67,13 @@ void runmylab(){
     /*основное действие*/
 	
     int pid, status;
+    int pipefd[2];
+    
+    if (pipe(pipefd) == -1) {
+        perror("pipe err");
+        exit(EXIT_FAILURE);
+    }
+    
     pid=fork();
     if(pid == -1) {
         perror("fork err");
@@ -78,6 +85,10 @@ void runmylab(){
     	printf("PARENT: конец\n");
     } else {
     	printf("CHILD: начало\n");
+    	
+    	STDIN = pipefd[0];
+    	STDOUT = pipefd[1];
+    	
     	system(_execute);
     	printf("CHILD: конец\n");
     }
