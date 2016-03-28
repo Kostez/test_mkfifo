@@ -72,8 +72,8 @@ void runmylab(){
         perror("fork err");
         exit(0);
     } else if(pid > 0) {
-    	
+    	printf("PARENT\n:");
     } else {
-    	
+    	printf("CHILD:\n");
     }
 }
