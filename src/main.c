@@ -78,7 +78,7 @@ void runmylab(){
     	printf("PARENT: конец\n");
     } else {
     	printf("CHILD: начало\n");
-    	system(*_execute);
+    	system("echo 'hi world'":);
     	printf("CHILD: конец\n");
     }
 }
