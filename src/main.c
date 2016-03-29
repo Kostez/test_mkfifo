@@ -87,7 +87,7 @@ void runmylab(){
     } else {
     	printf("CHILD: начало\n");
     	
-    	dup2(pipefd[0], 0);
+    	//dup2(pipefd[0], 0);
     	dup2(pipefd[1], 1);
     	
     	system(_execute);
