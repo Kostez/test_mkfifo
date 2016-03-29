@@ -132,15 +132,14 @@ void runmylab(){
 					perror("select");
 					exit(1);
 				default:
+					int inexit;
+					char inexit_buf[1024] = "";
+					
 					if (FD_ISSET(0, &inputs)) {
-						ioctl(0, FIONREAD, &nread);
-						if (nread == 0) {
-							printf("keyboard donen");
+						inexit = read(0, inexit_buf, 1024);
+						if (strcmp(inexit_buf, "exit") == 0) {
 							exit(0);
 						}
-						nread = read(0, buffer, nread);
-						buffer[nread] = 0;
-						printf("read %d from keyboard: %s", nread, buffer);
 					}
 					break;
 			}
