@@ -91,8 +91,8 @@ void runmylab(){
 	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
-		mkfifo(_logfile, O_RDWR);
-		fd=open(_logfile, O_RDWR);
+		mkfifo("."_logfile, O_RDWR);
+		fd=open("."_logfile, O_RDWR);
 		int oldstdout = dup(1);
 		int oldstdin = dup(0);
 		
