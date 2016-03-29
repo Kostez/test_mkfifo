@@ -75,7 +75,7 @@ void runmylab(){
 	int pipe0[2];
 	int pipe1[2];
 	int pipe2[2];
-    
+	char* fromcammand;
     
     	if (pipe(pipe0) == -1) {
 		perror("pipe0 err");
@@ -105,7 +105,10 @@ void runmylab(){
 		close(pipe1[1]);
 		close(pipe2[1]);
 		
+		read(pipe1[0], 1, 1024);
+		
 		printf("PARENT: конец\n");
+		
 	} else {
 		printf("CHILD: начало\n");
 		
