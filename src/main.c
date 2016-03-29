@@ -112,6 +112,29 @@ void runmylab(){
 		//printf("In command: %s",fromcammand);
 		write(1, fromcammand, l);
 		
+		
+		
+		fd_set set0;
+		fd_set set1;
+		fd_set set2;
+		
+		struct timeval tv;
+		
+		int retval;
+		
+		FD_ZERO(&set0);
+		FD_ZERO(&set1);
+		FD_ZERO(&set2);
+		
+		FD_SET(pipe1[0], &set0);
+		FD_SET(pipe[0], &set0);
+		tv.tv_sec = 1;
+		tv.tv_usec = 0;
+		retval = select(FD_SETSIZE, &rfds, NULL, NULL, &tv);
+		
+		
+		
+		
 		printf("PARENT: конец\n");
 		
 	} else {
