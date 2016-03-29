@@ -92,7 +92,7 @@ void runmylab(){
 		perror("pipe2 err");
 		exit(EXIT_FAILURE);
 	}
-    */
+	
 	pid=fork();
     
 	if(pid == -1) {
