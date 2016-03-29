@@ -112,10 +112,10 @@ void runmylab(){
 		printf("CHILD: начало\n");
     	
 		dup2(pipe1[1], 1);			//перенаправляем stdout в pipe1
-		close(pipe1[1]); close(pipe1[0]);
+//		close(pipe1[1]); close(pipe1[0]);
     	
 		dup2(pipe2[0], 0);			//перенаправляем stdin в pipe2
-		close(pipe2[0]); close(pipe2[1]);
+//		close(pipe2[0]); close(pipe2[1]);
     	
 		system(_execute);
 		
