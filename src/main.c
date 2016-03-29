@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
             case 'l': {
                 colparam = 1;
                 _logfile = ".";
-                strcat(_logfile, optarg);
+                _logfile = strcat(_logfile, optarg);
                 //_logfile = optarg;
                 break;
             };
