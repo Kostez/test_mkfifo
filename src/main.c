@@ -29,8 +29,9 @@ int main(int argc, char** argv) {
             };
             case 'e': {
                 colparam = 1;
-                _execute = ".";
+                //_execute = ".";
                 //strcat(*_execute, optarg);
+                strcat(_execute, "qwe");
                 break;
             };
             case 'm': {
