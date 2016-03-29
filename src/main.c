@@ -1,7 +1,7 @@
 #include <general.h>
 	
     char* _logfile = "STDERR";
-    char* _execute = " ";
+    char* _execute = "";
     int _multiplex = 1;
     int fd;
     
@@ -29,8 +29,7 @@ int main(int argc, char** argv) {
             };
             case 'e': {
                 colparam = 1;
-                _execute = ".";
-                strcat(_execute, optarg);
+                _execute = optarg;
                 break;
             };
             case 'm': {
@@ -50,7 +49,7 @@ int main(int argc, char** argv) {
         return 0;
     }
 	
-    if(strcmp(" ", _execute ) == 0 ){
+    if(strcmp("", _execute ) == 0 ){
 	printf("Укажите \"command and args\" командой: --multiplex \"command and args\"\n");
 	exit(1);	
     }
@@ -59,6 +58,8 @@ int main(int argc, char** argv) {
 	printf("Укажите значение multiplex равное 0 или 1\n");
 	exit(1);
     }
+    
+    printf("%s\n", _execute);
 	
     runmylab();
     
