@@ -3,7 +3,6 @@
     char* _logfile = "STDERR";
     char* _execute = "";
     int _multiplex = 1;
-    int fd;
     
 int main(int argc, char** argv) {
     
@@ -19,6 +18,7 @@ int main(int argc, char** argv) {
     int rez;
     int option_index;
     int colparam = 0;
+    
     while ((rez=getopt_long(argc,argv,short_options,
                 long_options,&option_index))!=-1){
         switch(rez){
@@ -107,7 +107,7 @@ void runmylab(){
 		
 		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст 
 		
-		char* fromcammand;
+		char fromcammand[1024];
 		int l = read(pipe1[0], fromcammand, 1024);
 		printf("%s\n",fromcammand);
 		//write(1, fromcammand, l);
