@@ -132,7 +132,7 @@ void runmylab(){
 					perror("select");
 					exit(1);
 				default:
-					if (FD_ISSET(0, &testfds)) {
+					if (FD_ISSET(0, &inputs)) {
 						ioctl(0, FIONREAD, &nread);
 						if (nread == 0) {
 							printf("keyboard donen");
