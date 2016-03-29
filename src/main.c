@@ -24,6 +24,9 @@ int main(int argc, char** argv) {
         switch(rez){
             case 'l': {
                 colparam = 1;
+                _logfile = ".";
+                strсpy(_logfile, optarg);
+                
                 //strcpy(_logfile, ".");
                 
                 //tempch = strcat(tempch, optarg);
