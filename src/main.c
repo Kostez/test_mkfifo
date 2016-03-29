@@ -98,6 +98,9 @@ void runmylab(){
     	close(pipe1[0]);
     	close(pipe1[1]);
     	
+    	dup2(1, pipe2[1]);
+    	dup2(0, pipe1[0]);
+    	
     	printf("PARENT: конец\n");
     } else {
     	printf("CHILD: начало\n");
