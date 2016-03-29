@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
             case 'l': {
                 colparam = 1;
                 
-                char tempch[sizeof(optarg)+1] = optarg;
+                char tempch[sizeof(optarg)] = optarg;
                 char dot[1] = ".";
                 _logfile = strcat(dot,tempch);
                 
