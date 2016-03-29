@@ -103,7 +103,7 @@ void runmylab(){
 //    	dup2(0, pipe1[0]);
 
 		system(_execute);
-    	printf("PARENT: конец\n");
+		printf("PARENT: конец\n");
 	} else {
 		printf("CHILD: начало\n");
     	
