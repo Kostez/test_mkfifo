@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
             case 'l': {
                 colparam = 1;
                 _logfile = ".";
-                strсpy(_logfile, optarg);
+                strcat(_logfile, optarg);
                 
                 //strcpy(_logfile, ".");
                 
