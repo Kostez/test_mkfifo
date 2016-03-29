@@ -89,8 +89,8 @@ void runmylab(){
 		printf("PARENT: начало\n");
 		printf("жду:\n");
 		
-		oldstdout = dup(1);
-		oldstdin = dup(0);
+		int oldstdout = dup(1);
+		int oldstdin = dup(0);
 		
 		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
     
