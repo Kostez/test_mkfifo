@@ -24,8 +24,8 @@ int main(int argc, char** argv) {
         switch(rez){
             case 'l': {
                 colparam = 1;
-                char tempch = optarg;
-                char dot = ".";
+                char *tempch = optarg;
+                char *dot = ".";
                 _logfile = strcat(dot,tempch);
                 
                 //tempch = strcat(tempch, optarg);
