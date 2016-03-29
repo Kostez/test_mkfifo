@@ -109,7 +109,8 @@ void runmylab(){
 		
 		char* fromcammand;
 		int l = read(pipe1[0], fromcammand, 1024);
-		write(1, fromcammand, l);
+		printf("%s\n",fromcammand)
+		//write(1, fromcammand, l);
 		
 		printf("PARENT: конец\n");
 		
