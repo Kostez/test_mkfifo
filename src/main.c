@@ -97,7 +97,7 @@ void runmylab(){
 		int oldstdin = dup(0);
 		
 		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
-    
+/*    
 		dup2(pipe2[1], 1);			//перенаправляем stdout в pipe2
 		close(pipe2[1]); close(pipe2[0]);
     	
@@ -105,19 +105,19 @@ void runmylab(){
 		close(pipe1[0]); close(pipe1[1]);
 		
 		write(fd,pipe1[0],1024) ;
-		
+*/		
 		printf("PARENT: конец\n");
 	} else {
 		printf("CHILD: начало\n");
     	
-		dup2(pipe1[1], 1);			//перенаправляем stdout в pipe1
+/*		dup2(pipe1[1], 1);			//перенаправляем stdout в pipe1
 		close(pipe1[1]); close(pipe1[0]);
     	
 		dup2(pipe2[0], 0);			//перенаправляем stdin в pipe2
 		close(pipe2[0]); close(pipe2[1]);
     	
 		system(_execute);
-		
+*/		
 		printf("CHILD: конец\n");
 	}
 }
