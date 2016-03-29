@@ -58,8 +58,6 @@ int main(int argc, char** argv) {
 	printf("Укажите значение multiplex равное 0 или 1\n");
 	exit(1);
     }
-    
-    printf("%s\n", _logfile);
 	
     runmylab();
     
