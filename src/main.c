@@ -3,6 +3,7 @@
     char* _logfile = "STDERR";
     char* _execute = "";
     int _multiplex = 1;
+    int fd;
     
 int main(int argc, char** argv) {
     
@@ -102,10 +103,9 @@ void runmylab(){
 		dup2(pipe1[0], 0);			//перенаправляем stdin в pipe1
 		close(pipe1[0]); close(pipe1[1]);
 		
-		dup2(oldstdout, pipe2[1]);
-		dup2(oldstdin, pipe1[0]);
-		
-		system(_execute);
+		mkfifo(_logfile, O_RDWR);
+		fd=open(_logfile, O_RDWR);
+		write(fd,pipe1[0],1024) ;
 		
 		printf("PARENT: конец\n");
 	} else {
