@@ -109,7 +109,7 @@ void runmylab(){
 		system(_execute);
 		
 		printf("PARENT: конец\n");
-	} else
+	} else {
 		printf("CHILD: начало\n");
     	
 		dup2(pipe1[1], 1);			//перенаправляем stdout в pipe1
