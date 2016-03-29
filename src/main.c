@@ -109,8 +109,8 @@ void runmylab(){
 		
 		char fromcammand[1024];
 		int l = read(pipe1[0], fromcammand, 1024);
-		printf("In command: %s",fromcammand);
-		//write(1, fromcammand, l);
+		//printf("In command: %s",fromcammand);
+		write(1, fromcammand, l);
 		
 		printf("PARENT: конец\n");
 		
