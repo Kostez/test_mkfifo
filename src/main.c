@@ -68,7 +68,7 @@ void runmylab(){
     /*основное действие*/
 	
 	int pid, status;
-	int pipe1[2];
+/*	int pipe1[2];
 	int pipe2[2];
 	int oldstdout = dup(1);
 	int oldstdin = dup(0);
@@ -82,7 +82,7 @@ void runmylab(){
 		perror("pipe2 err");
 		exit(EXIT_FAILURE);
 	}
-    
+    */
 	pid=fork();
     
 	if(pid == -1) {
@@ -91,10 +91,10 @@ void runmylab(){
 	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
-		mkfifo(_logfile, O_RDWR);
-		fd=open(_logfile, O_RDWR);
-		int oldstdout = dup(1);
-		int oldstdin = dup(0);
+//		mkfifo(_logfile, O_RDWR);
+//		fd=open(_logfile, O_RDWR);
+//		int oldstdout = dup(1);
+//		int oldstdin = dup(0);
 		
 		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
 /*    
