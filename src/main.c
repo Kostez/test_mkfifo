@@ -1,7 +1,6 @@
 #include <general.h>
 	
     char* _logfile = "STDERR";
-    char* _logfiletemp = "STDERR";
     char* _execute = "";
     int _multiplex = 1;
     int fd;
@@ -116,6 +115,8 @@ void runmylab(){
 		close(pipe1[0]);
 		dup2(pipe2[1], 2);
 		close(pipe2[0]);
+		
+		system(_execute);
 		
 		printf("CHILD: конец\n");
 	}
