@@ -1,6 +1,7 @@
 #include <general.h>
 	
     char* _logfile = "STDERR";
+    char* _logfiletemp = "STDERR";
     char* _execute = "";
     int _multiplex = 1;
     int fd;
@@ -25,16 +26,6 @@ int main(int argc, char** argv) {
             case 'l': {
                 colparam = 1;
                 _logfile = optarg;
-                //strcat(_logfile, optarg);
-                
-                //strcpy(_logfile, ".");
-                
-                //tempch = strcat(tempch, optarg);
-                
-                
-                
-                //_logfile = strcat(".", optarg);
-                //_logfile = optarg;
                 break;
             };
             case 'e': {
@@ -82,11 +73,16 @@ void runmylab(){
     /*основное действие*/
 	
 	int pid, status;
-/*	int pipe1[2];
+	int pipe0[2];
+	int pipe1[2];
 	int pipe2[2];
-	int oldstdout = dup(1);
-	int oldstdin = dup(0);
     
+    
+    	if (pipe(pipe0) == -1) {
+		perror("pipe0 err");
+		exit(EXIT_FAILURE);
+	}
+	
 	if (pipe(pipe1) == -1) {
 		perror("pipe1 err");
 		exit(EXIT_FAILURE);
@@ -105,33 +101,22 @@ void runmylab(){
 	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
-//		mkfifo(_logfile, O_RDWR);
-//		fd=open(_logfile, O_RDWR);
-//		int oldstdout = dup(1);
-//		int oldstdin = dup(0);
 		
-		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
-/*    
-		dup2(pipe2[1], 1);			//перенаправляем stdout в pipe2
-		close(pipe2[1]); close(pipe2[0]);
-    	
-		dup2(pipe1[0], 0);			//перенаправляем stdin в pipe1
-		close(pipe1[0]); close(pipe1[1]);
+		close(pipe0[0]);
+		close(pipe1[1]);
+		close(pipe2[1]);
 		
-		write(fd,pipe1[0],1024) ;
-*/		
 		printf("PARENT: конец\n");
 	} else {
 		printf("CHILD: начало\n");
-    	
-/*		dup2(pipe1[1], 1);			//перенаправляем stdout в pipe1
-		close(pipe1[1]); close(pipe1[0]);
-    	
-		dup2(pipe2[0], 0);			//перенаправляем stdin в pipe2
-		close(pipe2[0]); close(pipe2[1]);
-    	
-		system(_execute);
-*/		
+		
+		dup2(pipe0[0], 0);
+		close(pipe0[1]);
+		dup2(pipe1[1], 1);
+		close(pipe1[0]);
+		dup2(pipe2[1], 2);
+		close(pipe2[0]);
+		
 		printf("CHILD: конец\n");
 	}
 }
