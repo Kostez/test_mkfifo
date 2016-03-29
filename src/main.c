@@ -67,26 +67,25 @@ void runmylab(){
     /*основное действие*/
 	
 	int pid, status;
-    int pipe1[2];
-    int pipe2[2];
+	int pipe1[2];
+	int pipe2[2];
     
-    if (pipe(pipe1) == -1) {
-        perror("pipe1 err");
-        exit(EXIT_FAILURE);
-    }
+	if (pipe(pipe1) == -1) {
+		perror("pipe1 err");
+		exit(EXIT_FAILURE);
+	}
     
-    if (pipe(pipe2) == -1) {
-        perror("pipe2 err");
-        exit(EXIT_FAILURE);
+	if (pipe(pipe2) == -1) {
+		perror("pipe2 err");
+		exit(EXIT_FAILURE);
 	}
     
 	pid=fork();
     
 	if(pid == -1) {
-        perror("fork err");
-        exit(0);
-    	
-    } else if(pid > 0) {
+		perror("fork err");
+		exit(0);
+	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
 		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
