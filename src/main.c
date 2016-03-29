@@ -100,8 +100,7 @@ void runmylab(){
 		dup2(pipe1[0], 0);			//перенаправляем stdin в pipe1
 //		close(pipe1[0]); close(pipe1[1]);
     	
-		dup2(oldstdout, pipe2[1]);
-		dup2(oldstdin, pipe1[0]);
+		write(oldstdout, pipe1[0]);
 
 		system(_execute);
 		
