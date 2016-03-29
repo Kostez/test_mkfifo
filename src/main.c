@@ -59,7 +59,7 @@ int main(int argc, char** argv) {
 	exit(1);
     }
     
-    printf("%s\n", _execute);
+    printf("%s\n", _logfile);
 	
     runmylab();
     
