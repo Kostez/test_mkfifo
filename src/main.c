@@ -41,14 +41,14 @@ int main(int argc, char** argv) {
                 fprintf(stderr, "Unknown param\n");
                 exit(0);
 	        break;
-	     }
+		}
 	}
     
     
-     if(colparam == 0){
-        printf("Use README.MD to run with parameters\n");
-        return 0;
-    }
+	if(colparam == 0){
+		printf("Use README.MD to run with parameters\n");
+		return 0;
+	}
 	
     if(strcmp("", _execute ) == 0 ){
 	printf("Укажите \"command and args\" командой: --multiplex \"command and args\"\n");
