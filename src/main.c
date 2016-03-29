@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
         switch(rez){
             case 'l': {
                 colparam = 1;
-                _logfile = optarg;
+                _logfile = "."+optarg;
                 break;
             };
             case 'e': {
@@ -91,8 +91,8 @@ void runmylab(){
 	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
-		mkfifo("."_logfile, O_RDWR);
-		fd=open("."_logfile, O_RDWR);
+		mkfifo(_logfile, O_RDWR);
+		fd=open(_logfile, O_RDWR);
 		int oldstdout = dup(1);
 		int oldstdin = dup(0);
 		
@@ -103,7 +103,6 @@ void runmylab(){
     	
 		dup2(pipe1[0], 0);			//перенаправляем stdin в pipe1
 		close(pipe1[0]); close(pipe1[1]);
-		
 		
 		write(fd,pipe1[0],1024) ;
 		
