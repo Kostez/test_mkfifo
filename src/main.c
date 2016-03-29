@@ -69,6 +69,8 @@ void runmylab(){
 	int pid, status;
 	int pipe1[2];
 	int pipe2[2];
+	int oldstdout = dup(1);
+	int oldstdin = dup(0);
     
 	if (pipe(pipe1) == -1) {
 		perror("pipe1 err");
