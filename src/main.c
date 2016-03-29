@@ -66,7 +66,7 @@ int main(int argc, char** argv) {
 void runmylab(){
     /*основное действие*/
 	
-    int pid, status;
+	int pid, status;
     int pipe1[2];
     int pipe2[2];
     
@@ -78,42 +78,44 @@ void runmylab(){
     if (pipe(pipe2) == -1) {
         perror("pipe2 err");
         exit(EXIT_FAILURE);
-    }
+	}
     
-    pid=fork();
+	pid=fork();
     
-    if(pid == -1) {
+	if(pid == -1) {
         perror("fork err");
         exit(0);
+    	
     } else if(pid > 0) {
-    	printf("PARENT: начало\n");
-    	printf("жду:\n");
-    	while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
+		printf("PARENT: начало\n");
+		printf("жду:\n");
+		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
+    
+		dup2(pipe2[1], 1);			//перенаправляем stdout в pipe2
+		close(pipe2[1]);
+		close(pipe2[0]);
     	
-    	dup2(pipe2[1], 1);			//перенаправляем stdout в pipe2
-    	//close(pipe2[1]);
-    	//close(pipe2[0]);
+		dup2(pipe1[0], 0);			//перенаправляем stdin в pipe1
+		close(pipe1[0]);
+		close(pipe1[1]);
     	
-    	dup2(pipe1[0], 0);			//перенаправляем stdin в pipe1
-    	//close(pipe1[0]);
-    	//close(pipe1[1]);
-    	
-    	dup2(1, pipe2[1]);
-    	dup2(0, pipe1[0]);
-    	
+//    	dup2(1, pipe2[1]);
+//    	dup2(0, pipe1[0]);
+
+		system(_execute);
     	printf("PARENT: конец\n");
-    } else {
-    	printf("CHILD: начало\n");
+	} else {
+		printf("CHILD: начало\n");
     	
-    	dup2(pipe1[1], 1);			//перенаправляем stdout в pipe1
-    	close(pipe1[1]);
-    	close(pipe1[0]);
+		dup2(pipe1[1], 1);			//перенаправляем stdout в pipe1
+		close(pipe1[1]);
+		close(pipe1[0]);
     	
-    	dup2(pipe2[0], 0);			//перенаправляем stdin в pipe2
-    	close(pipe2[0]);
-    	close(pipe2[1]);
+		dup2(pipe2[0], 0);			//перенаправляем stdin в pipe2
+		close(pipe2[0]);
+		close(pipe2[1]);
     	
-    	system(_execute);
-    	printf("CHILD: конец\n");
-    }
+		system(_execute);
+		printf("CHILD: конец\n");
+	}
 }
