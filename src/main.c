@@ -104,7 +104,8 @@ void runmylab(){
 		dup2(oldstdout, pipe2[1]);
 		dup2(oldstdin, pipe1[0]);
 		
-		read(pipe1[0], oldstdout, 1024);
+		
+		
 		
 		system(_execute);
 		
