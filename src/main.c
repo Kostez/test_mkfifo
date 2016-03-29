@@ -91,7 +91,8 @@ void runmylab(){
 	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
-		
+		mkfifo(_logfile, O_RDWR);
+		fd=open(_logfile, O_RDWR);
 		int oldstdout = dup(1);
 		int oldstdin = dup(0);
 		
@@ -103,8 +104,7 @@ void runmylab(){
 		dup2(pipe1[0], 0);			//перенаправляем stdin в pipe1
 		close(pipe1[0]); close(pipe1[1]);
 		
-		mkfifo(_logfile, O_RDWR);
-		fd=open(_logfile, O_RDWR);
+		
 		write(fd,pipe1[0],1024) ;
 		
 		printf("PARENT: конец\n");
