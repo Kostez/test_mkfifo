@@ -124,9 +124,26 @@ void runmylab(){
 			tv.tv_sec = 2;
 			tv.tv_usec = 0;
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
-			
-		
-		
+			switch(retval) {
+				case 0:
+					printf("timeoutn");
+					break;
+				case -1:
+					perror("select");
+					exit(1);
+				default:
+					if (FD_ISSET(0, &testfds)) {
+						ioctl(0, FIONREAD, &nread);
+						if (nread == 0) {
+							printf("keyboard donen");
+							exit(0);
+						}
+						nread = read(0, buffer, nread);
+						buffer[nread] = 0;
+						printf("read %d from keyboard: %s", nread, buffer);
+					}
+					break;
+			}
 		}
 		
 		printf("PARENT: конец\n");
