@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
             case 'e': {
                 colparam = 1;
                 *_execute = ".";
-                strcat(_execute, optarg);
+                strcat(*_execute, optarg);
                 break;
             };
             case 'm': {
