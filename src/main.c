@@ -89,15 +89,16 @@ void runmylab(){
     	printf("PARENT: начало\n");
     	printf("жду:\n");
     	while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст -1
+    	
+    	dup2(pipe1[0], 0);
+    	dup2(pipe2[1], 1);
+    	
     	printf("PARENT: конец\n");
     } else {
     	printf("CHILD: начало\n");
     	
-    	dup2(pipe1[0], 0);
     	dup2(pipe1[1], 1);
-    	
     	dup2(pipe2[0], 0);
-    	dup2(pipe2[1], 1);
     	
     	system(_execute);
     	printf("CHILD: конец\n");
