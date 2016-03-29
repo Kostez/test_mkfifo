@@ -44,9 +44,6 @@ int main(int argc, char** argv) {
 	     }
 	}
     
-	printf("_logfile: %s\n",_logfile);		
-	printf("_execute: %s\n",_execute);		
-	printf("_multiplex: %d\n",_multiplex);
     
      if(colparam == 0){
         printf("Use README.MD to run with parameters\n");
