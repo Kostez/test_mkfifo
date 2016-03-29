@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
         switch(rez){
             case 'l': {
                 colparam = 1;
-                _logfile = (".")optarg;
+                _logfile = strcat(".", optarg);
                 break;
             };
             case 'e': {
