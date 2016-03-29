@@ -86,6 +86,10 @@ void runmylab(){
     	printf("PARENT: конец\n");
     } else {
     	printf("CHILD: начало\n");
+    	
+    	stdin = pipefd[0];
+    	stdout = pipefd[1];
+    	
     	system(_execute);
     	printf("CHILD: конец\n");
     }
