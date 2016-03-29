@@ -24,12 +24,12 @@ int main(int argc, char** argv) {
         switch(rez){
             case 'l': {
                 colparam = 1;
-                _logfile = optarg;
+                *_logfile = optarg;
                 break;
             };
             case 'e': {
                 colparam = 1;
-                _execute = optarg;
+                *_execute = optarg;
                 break;
             };
             case 'm': {
