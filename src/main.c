@@ -44,25 +44,28 @@ int main(int argc, char** argv) {
 		}
 	}
     
+	printf("_logfile: %s\n",_logfile);		
+	printf("_execute: %s\n",_execute);		
+	printf("_multiplex: %d\n",_multiplex);
     
 	if(colparam == 0){
 		printf("Use README.MD to run with parameters\n");
 		return 0;
 	}
 	
-    if(strcmp("", _execute ) == 0 ){
-	printf("Укажите \"command and args\" командой: --multiplex \"command and args\"\n");
-	exit(1);	
-    }
+	if(strcmp("", _execute ) == 0 ){
+		printf("Укажите \"command and args\" командой: --multiplex \"command and args\"\n");
+		exit(1);	
+	}
 	
-    if(((_multiplex > 1)||(_multiplex < 0))){
-	printf("Укажите значение multiplex равное 0 или 1\n");
-	exit(1);
-    }
+	if(((_multiplex > 1)||(_multiplex < 0))){
+		printf("Укажите значение multiplex равное 0 или 1\n");
+		exit(1);
+	}
 	
-    runmylab();
+	runmylab();
     
-    return 0;
+	return 0;
 }
 
 void runmylab(){
