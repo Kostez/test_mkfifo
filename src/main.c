@@ -105,6 +105,8 @@ void runmylab(){
 		close(pipe1[1]);
 		close(pipe2[1]);
 		
+		
+		
 		char* fromcammand;
 		int l = read(pipe1[0], fromcammand, 1024);
 		write(1, fromcammand, l);
