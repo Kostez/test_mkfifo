@@ -67,10 +67,16 @@ void runmylab(){
     /*основное действие*/
 	
     int pid, status;
-    int pipefd[2];
+    int pipe1[2];
+    int pipe2[2];
     
-    if (pipe(pipefd) == -1) {
-        perror("pipe err");
+    if (pipe(pipe1) == -1) {
+        perror("pipe1 err");
+        exit(EXIT_FAILURE);
+    }
+    
+    if (pipe(pipe2) == -1) {
+        perror("pipe2 err");
         exit(EXIT_FAILURE);
     }
     
@@ -87,8 +93,11 @@ void runmylab(){
     } else {
     	printf("CHILD: начало\n");
     	
-    	//dup2(pipefd[0], 0);
-    	dup2(pipefd[1], 1);
+    	dup2(pipe1[0], 0);
+    	dup2(pipe1[1], 1);
+    	
+    	dup2(pipe2[0], 0);
+    	dup2(pipe2[1], 1);
     	
     	system(_execute);
     	printf("CHILD: конец\n");
