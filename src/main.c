@@ -87,8 +87,8 @@ void runmylab(){
     } else {
     	printf("CHILD: начало\n");
     	
-    	stdin = pipefd[0];
-    	stdout = pipefd[1];
+    	dub2(pipefd[0], 0);
+    	dub2(pipefd[1], 1);
     	
     	system(_execute);
     	printf("CHILD: конец\n");
