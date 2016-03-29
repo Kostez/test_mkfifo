@@ -6,6 +6,9 @@
 #include <signal.h>
 #include <unistd.h>
 #include <getopt.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #define HELLOMSG "Say Hi!\r\n"
 
