@@ -104,6 +104,7 @@ void runmylab(){
 		dup2(oldstdout, pipe2[1]);
 		dup2(oldstdin, pipe1[0]);
 		
+		write(1, pipe1[0], 1024);
 		
 		printf("PARENT: конец\n");
 	} else {
