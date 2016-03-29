@@ -24,7 +24,13 @@ int main(int argc, char** argv) {
         switch(rez){
             case 'l': {
                 colparam = 1;
-                _logfile = strcat(".", optarg);
+                
+                char tempch[sizeof(optarg)+1];
+                tempch = strcat(".", optarg);
+                
+                
+                
+                //_logfile = strcat(".", optarg);
                 //_logfile = optarg;
                 break;
             };
