@@ -26,6 +26,7 @@ int main(int argc, char** argv) {
                 colparam = 1;
                 
                 char tempch[sizeof(optarg)+1];
+                _logfile = strcat(".",optarg);
                 
                 //tempch = strcat(tempch, optarg);
                 
