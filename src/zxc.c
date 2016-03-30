@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <getopt.h>
 
-void main {
+void main(int argc, char** argv) {
   char* str;
   int len;
   
