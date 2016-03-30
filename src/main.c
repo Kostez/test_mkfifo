@@ -139,6 +139,7 @@ void runmylab(){
 					if (FD_ISSET(0, &inputs)) {
 						inexit = read(0, inexit_buf, 1024);
 						write(1, inexit_buf, inexit);
+						printf("%d\n", inexit);
 						if (strcmp(inexit_buf, "exit") == 0) {
 							exit(0);
 						}
