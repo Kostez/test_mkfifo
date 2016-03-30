@@ -121,7 +121,7 @@ void runmylab(){
 		
 		while(1){
 			int inexit;
-			char inexit_buf;
+			char *inexit_buf;
 			FD_ZERO(&inputs);
 			FD_SET(0, &inputs);
 			tv.tv_sec = 1;
