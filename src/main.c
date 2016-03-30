@@ -116,14 +116,10 @@ void runmylab(){
 		struct timeval tv;
 		int retval;
 		
-		
-		
-//		FD_SET(pipe1[0], &inputs);
-//		FD_SET(pipe2[0], &inputs);
-		
-		
 		while(1){
 			FD_ZERO(&inputs);
+			FD_SET(pipe1[0], &inputs);
+			FD_SET(pipe2[0], &inputs);
 			FD_SET(0, &inputs);
 			printf("Начало while\n");
 			int inexit;
@@ -150,6 +146,11 @@ void runmylab(){
 						if (strstr(inexit_buf, "exit") != NULL) {
 							exit(0);
 						}
+						write(pipe0[1], inexit_buf, inexit);
+					}
+					if(FD_ISSET(pipe1[0], &inputs)){
+						inexit = read(pipe1[0], inexit_buf, 1024);
+						printf("%s\n", inexit_buf);
 					}
 					break;
 			}
