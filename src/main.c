@@ -201,5 +201,6 @@ void runmylab(){
 		close(pipe1[1]);
 		close(pipe2[1]);
 		printf("CHILD: конец\n");
+		return;
 	}
 }
