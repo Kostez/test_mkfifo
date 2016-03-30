@@ -76,7 +76,7 @@ void runmylab(){
 	int pipe1[2];
 	int pipe2[2];
 	
-    if (pipe(pipe0) == -1) {
+	if (pipe(pipe0) == -1) {
 		perror("pipe0 err");
 		exit(EXIT_FAILURE);
 	}
