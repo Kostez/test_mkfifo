@@ -13,6 +13,7 @@
 #define HELLOMSG "Say Hi!\r\n"
 
 void runmylab(void);
+void sighandler_child(int signum, siginfo_t *info, void *f);
 
 enum Modes {
         modes_std = 0,
