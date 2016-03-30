@@ -115,7 +115,7 @@ void runmylab(){
     
 	if(pid == -1) {
 		perror("fork err");
-//		exit(0);
+		exit(0);
 	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
@@ -148,8 +148,8 @@ void runmylab(){
 			char *inexit_buf;
 			
 			tv.tv_sec = 5;
-  			tv.tv_usec = 0;
-  			printf("Перед select\n");
+			tv.tv_usec = 0;
+			printf("Перед select\n");
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
 			printf("После select\n");
 			switch(retval) {
