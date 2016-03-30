@@ -115,7 +115,7 @@ void runmylab(){
     
 	if(pid == -1) {
 		perror("fork err");
-		exit(0);
+//		exit(0);
 	} else if(pid > 0) {
 		printf("PARENT: начало\n");
 		printf("жду:\n");
