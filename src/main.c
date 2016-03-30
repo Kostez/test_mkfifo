@@ -72,6 +72,7 @@ void sighandler_child(int signum, siginfo_t *info, void *f) {
 	switch(signum){
 		case SIGCHLD:
 			printf("%i TERMINATED WITH EXIT CODE: %i\n", info->si_pid, info->si_code);
+			childIsZombie = 1;
 			break;
 		default:
 			printf("unknown si_code\n");
@@ -183,6 +184,9 @@ void runmylab(){
 						printf("%s\n", inexit_buf);
 					}
 					break;
+			}
+			if (childIsZombie) {
+				exit(1);
 			}
 		}
 		
