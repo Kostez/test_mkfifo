@@ -122,7 +122,7 @@ void runmylab(){
 		
 		while(1){
 			int inexit;
-			char *inexit_buf;
+			char inexit_buf;
 			tv.tv_sec = 1;
 			tv.tv_usec = 0;
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
