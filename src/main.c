@@ -128,7 +128,7 @@ void runmylab(){
 			
 			tv.tv_sec = 5;
   			tv.tv_usec = 0;
-  			
+  			printf("Перед select\n");
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
 			printf("После select\n");
 			switch(retval) {
