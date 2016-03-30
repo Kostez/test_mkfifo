@@ -111,7 +111,7 @@ void runmylab(){
 		//printf("In command: %s",fromcammand);
 		write(1, fromcammand, l);
 		
-		fd_set inputs;
+		fd_set inputs, testfds;
 		struct timeval timeout;
 		int retval;
 		
@@ -119,12 +119,13 @@ void runmylab(){
 		FD_SET(0, &inputs);
 		
 		while(1){
+			testfds = inputs;
 			int inexit;
 			char *inexit_buf;
 			
 			timeout.tv_sec = 2;
-			timeout.tv_usec = 0;
-			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &timeout);
+  			timeout.tv_usec = 500000;
+			retval = select(FD_SETSIZE, &testfds, NULL, NULL, &timeout);
 			switch(retval) {
 				case 0:
 					printf("timeoutn");
