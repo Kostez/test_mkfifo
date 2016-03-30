@@ -82,6 +82,7 @@ void sighandler_child(int signum, siginfo_t *info, void *f) {
 
 void runmylab(){
     /*основное действие*/
+    int childIsZombie;
 	struct sigaction act; 
 	act.sa_flags = SA_SIGINFO;
 	act.sa_sigaction = sighandler_child;
