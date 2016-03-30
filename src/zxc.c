@@ -9,9 +9,10 @@ void main {
   char* str;
   int len;
   
-  len = read(STDIN, str, 1024);
+  scanf("%d", len);
+/*  len = read(STDIN, str, 1024);
   write(STDOUT, str, len);
   write(2, str, len);
-  
-  
+  */
+  printf("%d", len);
 }
