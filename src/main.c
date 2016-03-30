@@ -68,8 +68,22 @@ int main(int argc, char** argv) {
 	return 0;
 }
 
+void sighandler_child(int signum, siginfo_t *info, void *f) {
+	switch(signum){
+		case SIGCHLD:
+			printf("%i TERMINATED WITH EXIT CODE: %i\n", info->si_pid, info->si_code);
+			break;
+		default:
+			printf("unknown si_code\n");
+			return;	
+	}
+}
+
 void runmylab(){
     /*основное действие*/
+	struct sigaction act; 
+	act.sa_flags = SA_SIGINFO;
+	act.sa_sigaction = sighandler_child;
 	
 	int pid, status;
 	int pipe0[2];
