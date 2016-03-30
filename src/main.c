@@ -123,7 +123,7 @@ void runmylab(){
 			int inexit;
 			char *inexit_buf;
 			
-			tv.tv_sec = 1;
+			tv.tv_sec = 5;
   			tv.tv_usec = 0;
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
 			printf("После select\n");
