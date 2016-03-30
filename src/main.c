@@ -134,10 +134,8 @@ void runmylab(){
 					perror("select");
 					exit(1);
 				default:
-					
-					
 					if (FD_ISSET(0, &inputs)) {
-						inexit = read(0, inexit_buf, 1024);
+						inexit = read(0, inexit_buf, sizeof(inexit_buf));
 						if (strcmp(inexit_buf, "exit") == 0) {
 							exit(0);
 						}
