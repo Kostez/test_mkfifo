@@ -9,7 +9,8 @@ $(OUT)/zxc: $(OUT)/zxc.o
 
 $(OUT)/main.o: $(SRC)/main.c $(INC)/general.h
 	gcc -I$(INC) -o $(OUT)/main.o -c $(SRC)/main.c
-	
+$(OUT)/zxc.o: $(SRC)/zxc.c
+	gcc -o $(OUT)/zxc.o -c $(SRC)/zxc.c
 
 clean:
 	rm $(OUT)/*.o $(OUT)/lab
