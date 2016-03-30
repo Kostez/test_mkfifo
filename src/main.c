@@ -114,7 +114,7 @@ void runmylab(){
 		printf("PARENT: начало\n");
 		printf("жду:\n");
 		
-		sigaction(SIGCHLD, &act, NULL); 
+		sigaction(SIGCHLD, &act, NULL);
 		
 		close(pipe0[0]);
 		close(pipe1[1]);
