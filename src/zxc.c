@@ -9,7 +9,7 @@ void main {
   char* str;
   int len;
   
-  scanf("%d", len);
+  scanf("%d", &len);
 /*  len = read(STDIN, str, 1024);
   write(STDOUT, str, len);
   write(2, str, len);
