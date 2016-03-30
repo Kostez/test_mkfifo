@@ -136,9 +136,9 @@ void runmylab(){
 				default:
 					if (FD_ISSET(0, &inputs)) {
 						inexit = read(0, inexit_buf, 1);
-						//if (strcmp(inexit_buf, "exit") == 0) {
-						//	exit(0);
-						//}
+						if (strcmp(inexit_buf, "exit") == 0) {
+							exit(0);
+						}
 					}
 					break;
 			}
