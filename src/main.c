@@ -121,6 +121,8 @@ void runmylab(){
 		FD_SET(0, &inputs);
 		
 		while(1){
+			int inexit;
+			char inexit_buf[1024] = "";
 			tv.tv_sec = 2;
 			tv.tv_usec = 0;
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
@@ -132,8 +134,7 @@ void runmylab(){
 					perror("select");
 					exit(1);
 				default:
-					int inexit;
-					char inexit_buf[1024] = "";
+					
 					
 					if (FD_ISSET(0, &inputs)) {
 						inexit = read(0, inexit_buf, 1024);
