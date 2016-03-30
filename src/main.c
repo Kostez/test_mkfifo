@@ -104,7 +104,7 @@ void runmylab(){
 		close(pipe1[1]);
 		close(pipe2[1]);
 		
-		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст 
+		//while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст 
 		
 		char fromcammand[1024];
 		int l = read(pipe1[0], fromcammand, 1024);
