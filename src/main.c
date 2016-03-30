@@ -133,7 +133,7 @@ void runmylab(){
 					exit(1);
 				default:
 					int inexit;
-					char inexit_buf[1024] = "";
+					char *inexit_buf[1024] = "";
 					
 					if (FD_ISSET(0, &inputs)) {
 						inexit = read(0, inexit_buf, 1024);
