@@ -180,7 +180,7 @@ void runmylab(){
 						printf("%s\n", inexit_buf);
 					}
 					
-					//exit(0);
+					exit(0);
 					break;
 			}
 		}
