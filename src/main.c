@@ -123,8 +123,8 @@ void runmylab(){
 			int inexit;
 			char *inexit_buf;
 			
-			timeout.tv_sec = 2;
-  			timeout.tv_usec = 500000;
+			timeout.tv_sec = 0;
+  			timeout.tv_usec = 20;
 			retval = select(FD_SETSIZE, &testfds, NULL, NULL, &timeout);
 			switch(retval) {
 				case 0:
