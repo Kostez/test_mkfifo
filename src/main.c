@@ -181,6 +181,7 @@ void runmylab(){
 					}
 					break;
 			}
+			exit(0);
 		}
 		
 		printf("PARENT: конец\n");
