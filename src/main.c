@@ -116,7 +116,7 @@ void runmylab(){
 		struct timeval tv;
 		int retval;
 		
-		while(1){
+		//while(1){
 			FD_ZERO(&inputs);
 			FD_SET(pipe1[0], &inputs);
 //			FD_SET(pipe2[0], &inputs);
@@ -153,7 +153,7 @@ void runmylab(){
 //						printf("%s\n", inexit_buf);
 					}
 					break;
-			}
+		//	}
 		}
 		
 		printf("PARENT: конец\n");
