@@ -111,21 +111,20 @@ void runmylab(){
 		//printf("In command: %s",fromcammand);
 		write(1, fromcammand, l);
 		
-		
 		fd_set inputs;
-		struct timeval tv;
+		struct timeval timeout;
 		int retval;
 		
-		
+		FD_ZERO(&inputs);
+		FD_SET(0, &inputs);
 		
 		while(1){
 			int inexit;
 			char *inexit_buf;
-			FD_ZERO(&inputs);
-			FD_SET(0, &inputs);
-			tv.tv_sec = 5;
-			tv.tv_usec = 0;
-			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
+			
+			timeout.tv_sec = 2;
+			timeout.tv_usec = 0;
+			retval = select(FD_SETSIZE, &timeval, NULL, NULL, timeout);
 			switch(retval) {
 				case 0:
 					printf("timeoutn");
