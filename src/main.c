@@ -119,13 +119,12 @@ void runmylab(){
 		FD_SET(0, &inputs);
 		
 		while(1){
-			testfds = inputs;
 			int inexit;
 			char *inexit_buf;
 			
 			tv.tv_sec = 1.0;
   			tv.tv_usec = 0;
-			retval = select(FD_SETSIZE, &testfds, NULL, NULL, &tv);
+			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
 			switch(retval) {
 				case 0:
 					printf("timeoutn");
