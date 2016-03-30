@@ -119,12 +119,14 @@ void runmylab(){
 		FD_SET(0, &inputs);
 		
 		while(1){
+			printf("Начало while\n");
 			int inexit;
 			char *inexit_buf;
 			
 			tv.tv_sec = 1;
   			tv.tv_usec = 0;
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
+			printf("После select\n");
 			switch(retval) {
 				case 0:
 					printf("timeoutn");
@@ -133,6 +135,7 @@ void runmylab(){
 					perror("select err");
 					exit(1);
 				default:
+					printf("Начало default\n");
 					if (FD_ISSET(0, &inputs)) {
 						inexit = read(0, inexit_buf, 1024);
 						write(1, inexit_buf, inexit);
