@@ -105,7 +105,7 @@ void runmylab(){
 		close(pipe2[1]);
 		
 //		while(pid = wait(&status)>0);		//wait выдает номер (pid) потомка, если не осталось потомком, то выдаст
-		printf("status: %d", status);
+		printf("status: %d\n", status);
 		
 		char fromcammand[1024];
 //		int l = read(pipe1[0], fromcammand, 1024);
@@ -140,6 +140,7 @@ void runmylab(){
 				default:
 					printf("Начало default\n");
 					if (FD_ISSET(0, &inputs)) {
+						printf("0\n");
 						inexit = read(0, inexit_buf, 1024);
 						write(1, inexit_buf, inexit);
 						printf("%d\n", inexit);
@@ -149,6 +150,7 @@ void runmylab(){
 						write(pipe0[1], inexit_buf, inexit);
 					}
 					if(FD_ISSET(pipe1[0], &inputs)){
+						printf("pipe1[0]\n");
 						inexit = read(pipe1[0], inexit_buf, 1024);
 						if(inexit == 0){
 							exit(0);
@@ -156,6 +158,7 @@ void runmylab(){
 						printf("%s\n", inexit_buf);
 					}
 					if(FD_ISSET(pipe2[0], &inputs)){
+						printf("pipe2[0]\n");
 						inexit = read(pipe1[0], inexit_buf, 1024);
 						if(inexit == 0){
 							exit(0);
