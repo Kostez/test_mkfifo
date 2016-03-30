@@ -76,8 +76,7 @@ void runmylab(){
 	int pipe1[2];
 	int pipe2[2];
 	
-    
-    	if (pipe(pipe0) == -1) {
+    if (pipe(pipe0) == -1) {
 		perror("pipe0 err");
 		exit(EXIT_FAILURE);
 	}
@@ -137,9 +136,9 @@ void runmylab(){
 				default:
 					if (FD_ISSET(0, &inputs)) {
 						inexit = read(0, inexit_buf, 1);
-						if (strcmp(inexit_buf, "exit") == 0) {
-							exit(0);
-						}
+						//if (strcmp(inexit_buf, "exit") == 0) {
+						//	exit(0);
+						//}
 					}
 					break;
 			}
