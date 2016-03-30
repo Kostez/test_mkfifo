@@ -124,7 +124,7 @@ void runmylab(){
 			
 			timeout.tv_sec = 2;
 			timeout.tv_usec = 0;
-			retval = select(FD_SETSIZE, &inputs, NULL, NULL, timeout);
+			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &timeout);
 			switch(retval) {
 				case 0:
 					printf("timeoutn");
