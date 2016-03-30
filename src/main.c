@@ -166,17 +166,17 @@ void runmylab(){
 					if(FD_ISSET(pipe1[0], &inputs)){
 						printf("pipe1[0]\n");
 						inexit = read(pipe1[0], inexit_buf, 1024);
-/*						if(inexit == 0){
+						if(inexit == 0){
 							exit(0);
-						}*/
+						}
 						printf("%s\n", inexit_buf);
 					}
 					if(FD_ISSET(pipe2[0], &inputs)){
 						printf("pipe2[0]\n");
 						inexit = read(pipe2[0], inexit_buf, 1024);
-/*						if(inexit == 0){
+						if(inexit == 0){
 							exit(0);
-						}*/
+						}
 						printf("%s\n", inexit_buf);
 					}
 					
