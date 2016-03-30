@@ -116,6 +116,9 @@ void runmylab(){
 		int retval;
 		
 		FD_ZERO(&inputs);
+		
+		FD_SET(pipe1[0], &inputs);
+		FD_SET(pipe2[0], &inputs);
 		FD_SET(0, &inputs);
 		
 		while(1){
@@ -125,6 +128,7 @@ void runmylab(){
 			
 			tv.tv_sec = 5;
   			tv.tv_usec = 0;
+  			
 			retval = select(FD_SETSIZE, &inputs, NULL, NULL, &tv);
 			printf("После select\n");
 			switch(retval) {
@@ -161,7 +165,9 @@ void runmylab(){
 		close(pipe2[0]);
 		
 		system(_execute);
-		
+		close(pipe0[0]);
+		close(pipe1[1]);
+		close(pipe2[1]);
 		printf("CHILD: конец\n");
 	}
 }
