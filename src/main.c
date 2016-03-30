@@ -140,7 +140,7 @@ void runmylab(){
 						inexit = read(0, inexit_buf, 1024);
 						write(1, inexit_buf, inexit);
 						printf("%d\n", inexit);
-						if (strcmp(inexit_buf, "exit\0") == 0) {
+						if (strcmp(inexit_buf, "exit\n") == 0) {
 							exit(0);
 						}
 					}
