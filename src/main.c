@@ -118,7 +118,7 @@ void runmylab(){
 		
 		while(1){
 			FD_ZERO(&inputs);
-//			FD_SET(pipe1[0], &inputs);
+			FD_SET(pipe1[0], &inputs);
 //			FD_SET(pipe2[0], &inputs);
 			FD_SET(0, &inputs);
 			printf("Начало while\n");
