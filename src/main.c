@@ -150,6 +150,9 @@ void runmylab(){
 					}
 					if(FD_ISSET(pipe1[0], &inputs)){
 						inexit = read(pipe1[0], inexit_buf, 1024);
+						if(inexit == 0){
+							exit(0);
+						}
 						printf("%s\n", inexit_buf);
 					}
 					break;
