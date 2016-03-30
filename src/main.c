@@ -108,9 +108,9 @@ void runmylab(){
 		printf("status: %d", status);
 		
 		char fromcammand[1024];
-		int l = read(pipe1[0], fromcammand, 1024);
+//		int l = read(pipe1[0], fromcammand, 1024);
 		//printf("In command: %s",fromcammand);
-		write(1, fromcammand, l);
+//		write(1, fromcammand, l);
 		
 		fd_set inputs;
 		struct timeval tv;
