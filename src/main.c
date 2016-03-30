@@ -156,8 +156,6 @@ void runmylab(){
 							exit(0);
 						}
 						printf("%s\n", inexit_buf);
-						exit(0);
-						
 					}
 					if(FD_ISSET(pipe2[0], &inputs)){
 						printf("pipe2[0]\n");
