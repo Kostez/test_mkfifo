@@ -151,6 +151,7 @@ void runmylab(){
 					printf("timeoutn\n");
 					break;
 				case -1:
+					printf("-1 error\n");
 					perror("select err");
 					exit(1);
 				default:
