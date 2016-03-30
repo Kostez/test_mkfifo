@@ -3,6 +3,7 @@
     char* _logfile = "STDERR";
     char* _execute = "";
     int _multiplex = 1;
+    int childIsZombie;
     
 int main(int argc, char** argv) {
     
@@ -80,7 +81,7 @@ void sighandler_child(int signum, siginfo_t *info, void *f) {
 	}
 }
 
-int childIsZombie;
+
 
 void runmylab(){
     /*основное действие*/
