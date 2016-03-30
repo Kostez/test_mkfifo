@@ -129,7 +129,7 @@ void runmylab(){
 			printf("После select\n");
 			switch(retval) {
 				case 0:
-					printf("timeoutn");
+					printf("timeoutn\n");
 					break;
 				case -1:
 					perror("select err");
